@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationComponent implements OnInit {
 
+  // auth=true;
+  auth:boolean=true;
   constructor() { }
 
   ngOnInit(): void {

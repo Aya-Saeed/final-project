@@ -16,6 +16,10 @@ import { MenuCategoriesComponent } from './menu/menu-categories/menu-categories.
 import { MenuMealsComponent } from './menu/menu-categories/menu-meals/menu-meals.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ReservationComponent } from './home/reservation/reservation.component';
+import { TeamPageComponent } from './team-page/team-page.component';
+import { RegisterationComponent } from './registeration/registeration.component';
+import { LoginComponent } from './login/login.component';
+import { MealDetailsComponent } from './menu/menu-categories/menu-meals/meal-details/meal-details.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,10 @@ import { ReservationComponent } from './home/reservation/reservation.component';
     MenuMealsComponent,
     AboutUsComponent,
     ReservationComponent,
+    TeamPageComponent,
+    RegisterationComponent,
+    LoginComponent,
+    MealDetailsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

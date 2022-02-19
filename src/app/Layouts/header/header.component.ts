@@ -13,7 +13,25 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  freg(){
-    this.router.navigate(["\#/reserve"]);
+  freg(reserve:string)
+  {
+    this.router.navigateByUrl('#'+reserve);
   }
 }
+// # type script 
+
+
+// goto(fragement:string){
+//     this.router.navigateByUrl('fragement#'+fragement);
+//     console.log(fragement);
+//   }
+  
+//  # router 
+// const routerOptions:ExtraOptions={
+//   scrollPositionRestoration:'enabled',
+//   anchorScrolling:'enabled',
+// }
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes,routerOptions)],
+// //   exports: [RouterModule]
+// })  

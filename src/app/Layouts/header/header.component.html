@@ -50,14 +50,18 @@
             >
               Special Dishes
             </a>
+
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="special-dishes.html"
+              <a class="dropdown-item" (click)="freg('meal1')"
                 >Beef Steak Sauce</a
               >
-              <a class="dropdown-item" href="special-dishes.html"
+              <a class="dropdown-item" (click)="freg('meal2')"
                 >Salmon Zucchini</a
               >
             </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/menu">Menu</a>
           </li>
         </div>
       </ul>
@@ -70,15 +74,19 @@
       </a>
       <ul class="navbar-nav d-flex justify-content-between">
         <div class="d-flex flex-lg-row flex-column">
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/menu">Menu</a>
-          </li>
+          
           <li class="nav-item">
-            <a class="nav-link" href="team.html">Team</a>
+            <a class="nav-link" routerLink="/ourteam">Team</a>
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link" (click)="freg()">Reservation</a>
+            <a class="nav-link" (click)="freg('reserve')">Reservation</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" routerLink="/signin" >Login</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" routerLink="/signup" >Sign Up</a>
           </li>
         </div>
         <li class="nav-item">
