@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-lg-4 menu-wrap" >
+        <div class="heading-menu">
+            <h3 class="text-center mb-5">{{ category }}</h3>
+        </div>
+        <app-menu-meals *ngFor="let meal of meals" [mymeal]="meal"></app-menu-meals>
+    </div>
+</div>
