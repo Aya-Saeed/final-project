@@ -1,27 +1,14 @@
 <nav id="navbar-header" class="navbar navbar-expand-lg">
   <div class="container">
-    <a
-      class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile"
-      href="/"
-    >
+    <a class="navbar-brand navbar-brand-center d-flex align-items-center p-0 only-mobile" href="/">
       <img src="../../../assets/img/logo.png" alt="" />
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="lnr lnr-menu"></span>
     </button>
 
-    <div
-      class="collapse navbar-collapse justify-content-between"
-      id="navbarSupportedContent"
-    >
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
       <ul class="navbar-nav d-flex justify-content-between">
         <li class="nav-item only-desktop">
           <a class="nav-link" id="side-nav-open" href="#">
@@ -30,34 +17,21 @@
         </li>
         <div class="d-flex flex-lg-row flex-column">
           <li class="nav-item active">
-            <a class="nav-link" routerLink="/home"
-              >Home <span class="sr-only">(current)</span></a
-            >
+            <a class="nav-link" routerLink="/home">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"routerLink="/aboutus">About</a>
+            <a class="nav-link" routerLink="/aboutus">About</a>
           </li>
 
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
               Special Dishes
             </a>
 
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" (click)="freg('meal1')"
-                >Beef Steak Sauce</a
-              >
-              <a class="dropdown-item" (click)="freg('meal2')"
-                >Salmon Zucchini</a
-              >
+              <a class="dropdown-item" (click)="freg('meal1')">Beef Steak Sauce</a>
+              <a class="dropdown-item" (click)="freg('meal2')">Salmon Zucchini</a>
             </div>
           </li>
           <li class="nav-item active">
@@ -65,29 +39,108 @@
           </li>
         </div>
       </ul>
-
-      <a
-        class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop"
-        href="#"
-      >
+      <a class="navbar-brand navbar-brand-center d-flex align-items-center only-desktop" href="#">
         <img src="../../../assets/img/logo.png" alt="" />
       </a>
       <ul class="navbar-nav d-flex justify-content-between">
         <div class="d-flex flex-lg-row flex-column">
-          
           <li class="nav-item">
             <a class="nav-link" routerLink="/ourteam">Team</a>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" *ngIf="isAuthenticted">
             <a class="nav-link" (click)="freg('reserve')">Reservation</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link" routerLink="/signin" >Login</a>
+            <a class="nav-link" id="love" routerLink="/favourite">favourites</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link" routerLink="/signup" >Sign Up</a>
+            <a class="nav-link" routerLink="/signin" *ngIf="!isAuthenticted">Login</a>
           </li>
+          <li class="nav-item dropdown" *ngIf="isAuthenticted">
+            <a class="nav-link" (click)="onLogout()">Logout</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link" routerLink="/signup" *ngIf="!isAuthenticted">Sign Up</a>
+          </li>
+          <!-- <li class="nav-item dropdown"> 
+            <i class="fa-solid fa-heart" ></i>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <button class="btn btn-primar">
+              <i
+                style="font-size: 30px"
+                class="fa-solid fa-cart-shopping"
+                id="cart"
+                >{{ mealarray.length }}</i
+              > -->
+          <!-- <app-drop-down>
+                <ng-container class="header">
+                  <div
+                    class="image image--small"
+                    style="
+                      background-image: url('assets/img/icons/iconmonstr-shopping-cart-3.svg');
+                    "
+                  >
+                    <div class="notification notification--danger">
+                      {{ theAddedProduct?.length }}
+                    </div>
+                  </div>
+                </ng-container>
+                <ng-container class="body">
+                 
+                  <ul class="dropdown__items list list--vr-separator">
+                    <li
+                      class="dropdown__item list__item"
+                      *ngFor="let product of theAddedProduct"
+                    >
+                     
+                      <div class="item-small-1">
+                     
+                        <div class="item-small-1__data">
+                        
+                          <a href="" class="item-small-1__title"
+                            >{{ product?.name }} X {{ 'product price' }}</a
+                          >
+                         
+                          <span class="item-small-1__description">
+                            {{ 'product price' }} X ${{ 'product price'}}
+                          </span>
+                        </div>
+                      
+                        <div class="item-small-1__image-box">
+                          <a
+                            href="#"
+                            class="item-small-1__image image"
+                            [style]="'background-image: url(' + product?.img + ')'"
+                          >
+                          </a>
+                          <a
+                            href="#"
+                            class="item-small-1__action"
+                            (click)="delete(product)"
+                          >
+                            <i class="fas fa-times"></i>
+                          </a>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                
+                  <div class="separator"></div>
+                  <div class="block">
+                    <span class="lable">Total:</span>
+                    <span class="lable">$2870</span>
+                  </div>
+             
+                  <div class="block list list--hr">
+                    <a class="list-item btn btn--gray" href="">View Cart</a>
+                    <a class="list-item btn btn--primary" href="">Checkout</a>
+                  </div>
+                </ng-container>
+              </app-drop-down> -->
+          <!-- </button>
+          </li> -->
         </div>
         <li class="nav-item">
           <a id="side-search-open" class="nav-link" href="#">

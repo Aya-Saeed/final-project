@@ -1,0 +1,84 @@
+<!-- <ng-container *ngIf="true">
+  <div class="card one" width="100%">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <h4>name</h4>
+        <h4>100$</h4>
+        
+      </div>
+
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+    </div>
+    <img style="height: 100px;width: 100px;" src="../../../../assets/img/h.jpg" class="card-img-top" alt="..." />
+    <i style="font-size: 30px;" class="fa-solid fa-cart-shopping" id="cart"></i>
+</div>
+
+</ng-container> -->
+<!-- <ng-container *ngIf="true">
+  <div class="container m">
+    <h3>your favourites !!</h3>
+    <div class="row">
+      <div class="col-md-6" *ngFor="let order of mealarray">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h4>{{ order.name }}</h4>
+              <h4>100$</h4>
+            </div>
+            <img src="{{ order.img }}" class="card-img-top" />
+            <div class="d-flex justify-content-between">
+               <p class="card-text">
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </p> 
+            <a (click)="delete(order)">
+              <i class="fa-solid fa-trash-can"></i>
+            </a>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="false">
+  <div class="container">
+    <div class="card">
+      <h5 class="card-title"></h5>
+    </div>
+    <div class="center">
+      <img src="../../assets/img/hero-1.jpg" />
+      <h4>your cart is empty</h4>
+      <h6>add item to it now</h6>
+      <button class="btn btn-primary">shop now</button>
+    </div>
+  </div>
+</ng-container>  -->
+<!-- <ng-container> -->
+
+<div class="container mt-4">
+
+  <div class="row" style="margin-top: 99px;">
+    <h3>your favourites !!</h3>
+    
+    <div class="col-md-4 col-sm-6"  *ngFor="let order of mealarray">
+      <div class="card card-block">
+        <h4 class="card-title special text-right"><i class="fa-solid fa-x" (click)="delete(order)"></i></h4>
+        <img src="{{ order.img }}" alt="Photo of sunset">
+        <div class="d-flex justify-content-between">
+        <h5 class="card-title mt-3 mb-3">{{ order.name }}</h5>
+        <h5 class="card-title mt-3 mb-3">100$</h5>
+      </div>
+        <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p>
+      </div>
+    </div>
+    
+  </div>
+  <!-- <div class="col-md-3 col-sm-6" style="height: 451px;"></div> -->
+</div>
+
+<!-- </ng-container> -->

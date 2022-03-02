@@ -1,112 +1,94 @@
-<section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay" style="background-image: url(../../../assets/img/reservation-bg.jpg);" data-stellar-background-ratio="0.8">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-5">
-                <div class="section-content bg-white p-5 shadow">
-                    <div class="heading-section text-center">
-                        <span class="subheading">
-                            Reservation
-                        </span>
-                        <h2>
-                            Book Now
-                        </h2>
-                    </div>
-                    <form method="post" name="contact-us" action="">
-                        <div class="row">
-                            <!-- <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                            </div> -->
-                            <!-- <div class="col-md-12 form-group">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                            </div> -->
-                            <!-- <div class="col-md-12 form-group">
-                                <input type="number" class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Phone">
-                            </div> -->
-                            <div class="col-md-12 form-group">
-                                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
-                                    <input type="date" class="form-control datetimepicker-input">
-                                    <!-- <input type="date" class="form-control datetimepicker-input" data-target="#datetimepicker4" placeholder="Date"> -->
-                                    <!-- <div class="input-group-append" data-target="#datetimepicker4" data-toggle="datetimepicker">
-                                        <div class="input-group-text">
-                                            <span class="lnr lnr-calendar-full"></span>
-                                        </div>
-                                    </div> -->
-                                </div>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="start">in time</label>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <label for="end">out time</label>
-                            </div>
-                            <div class="col-md-6 form-group">
-                                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-                                    
-                                    <input type="time" class="form-control datetimepicker-input" id="start" placeholder="start time">
-                                    
-                                    <!-- <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                                        <div class="input-group-text">
-                                            <span class="lnr lnr-clock"></span>
-                                        </div>
-                                    </div> -->
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-6 form-group">
-                                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
-                                    
-                                    
-                                    <input type="time" class="form-control datetimepicker-input" id="end" placeholder="Time">
-                                    
-                                    <!-- <div class="input-group-append" data-target="#datetimepicker3" data-toggle="datetimepicker">
-                                        <div class="input-group-text">
-                                            <span class="lnr lnr-clock"></span>
-                                        </div>
-                                    </div> -->
-                                </div>
-                            </div>
-                            <div class="col-md-12 form-group">
-                                <select name="person"  class="form-control" id="person">
-                                    <option selected disabled>person</option> 
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                  </select>
-                            </div>
-                            <!-- <div class="col-md-12 form-group">
-                                <select class="form-control select2-hidden-accessible" id="selectPerson" tabindex="-1" aria-hidden="true">
-                                    <option></option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                </select>
-                                <span class="select2 select2-container select2-container--default" dir="ltr" style="width: 349px;">
-                                <span class="selection">
-                                <span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-selectPerson-container">
-                                <span class="select2-selection__rendered" id="select2-selectPerson-container">
-                                <span class="select2-selection__placeholder">Person</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                        </div> -->
-                 
-                            <!-- <div class="col-md-12 form-group">
-                                <textarea class="form-control" id="message" name="message" rows="6" placeholder="Your Message ..."></textarea>
-                            </div> -->
-                            <div *ngIf="auth" class="col-md-12 text-center" >
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">reserve now</button>
-                            </div>
-                            <div *ngIf="!auth" class="col-md-12 text-center" >
-                                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit">Register</button>
-                            </div>
-                        </div>
-                    </form>
+<section id="gtco-reservation" class="bg-fixed bg-white section-padding overlay"
+  style="background-image: url(../../../assets/img/reservation-bg.jpg);" data-stellar-background-ratio="0.8">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="section-content bg-white p-5 shadow">
+          <div class="heading-section text-center">
+            <span class="subheading">
+              Reservation
+            </span>
+            <h2>
+              Book Now
+            </h2>
+          </div>
+
+          <form name="contact-us" [formGroup]="book" #reservation=ngForm (ngSubmit)="onSubmit(reservation)">
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <div class="input-group date" id="datetimepicker4" data-target-input="nearest">
+                  <input type="date" class="form-control datetimepicker-input" formControlName="date"
+                    [ngClass]="{'invalid': book.get('date')!.invalid && book.get('date')!.touched}">
+
                 </div>
+                <div
+                  *ngIf="book.get('date')!.invalid && book.get('date')!.touched && book.get('date')!.errors?.['required'] ">
+                  <span style="color: red;">*This field is required </span>
+                </div>
+                <!-- <div *ngIf="book.hasError('incorrect')">
+                  <span style="color: red;">*This field is misMatch </span>
+                </div> -->
+                <div *ngIf="(book.get('date')!.value < current ) && book.get('date')!.touched">
+                  <span style="color: red;">*Please Enter a valid date </span>
+                  </div>
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="start">in time</label>
+              </div>
+              <div class="col-md-6 form-group">
+                <label for="end">out time</label>
+              </div>
+              <div class="col-md-6 form-group">
+                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+                  <input type="time" class="form-control datetimepicker-input" id="start" placeholder="start time"
+                    formControlName="start_time"
+                    [ngClass]="{'invalid': book.get('start_time')!.invalid && book.get('start_time')!.touched}">
+
+                </div>
+                <div
+                  *ngIf="book.get('start_time')!.invalid && book.get('start_time')!.touched && book.get('start_time')!.errors?.['required'] ">
+                  <span style="color: red;">*This field is required </span>
+                </div>
+              </div>
+
+              <div class="col-md-6 form-group">
+                <div class="input-group date" id="datetimepicker3" data-target-input="nearest">
+
+                  <input type="time" class="form-control datetimepicker-input" id="end" placeholder="Time"
+                    formControlName="end_time"
+                    [ngClass]="{'invalid': book.get('end_time')!.invalid && book.get('end_time')!.touched}">
+                </div>
+
+                <div
+                  *ngIf="book.get('end_time')!.invalid && book.get('end_time')!.touched && book.get('end_time')!.errors?.['required'] ">
+                  <span style="color: red;">*This field is required </span>
+                </div>
+
+              </div>
+              <div class="col-md-12 form-group">
+                <label for="persons">choose number of persons</label>
+                <select name="person" class="form-control" id="person" formControlName="person" id="persons">
+                  <option selected disabled>person</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
+              </div>
+              <div *ngIf="auth" class="col-md-12 text-center">
+                <button class="btn btn-primary btn-shadow btn-lg" type="submit" name="submit"
+                  [disabled]="book.invalid || (book.get('date')!.value < current ) || 
+                  (book.get('start_time')!.value >= book.get('end_time')!.value)">reserve
+                  now</button>
+              </div>
+
             </div>
+          </form>
+
         </div>
-        
+      </div>
     </div>
+
+  </div>
+
 </section>

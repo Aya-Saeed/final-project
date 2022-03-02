@@ -1,43 +1,23 @@
-<!-- <div class="menus d-flex align-items-center">
-    <div class="menu-img rounded-circle">
-        <img class="img-fluid" src="../../../../assets/img/breakfast-1.jpg" alt="">
-    </div>
-    <div class="text-wrap">
-        <div class="row align-items-start">
-            <div class="col-8">
-                <h4>{{ mymeal }}</h4>
-            </div>
-            <div class="col-4">
-                <h4 class="text-muted menu-price">$30</h4>
-            </div>
-        </div>
-        <p>Meat Ball, Mie</p>
-    </div>
-</div> -->
-<!-- <div class="container">
-    <div class="row"> -->
-<!-- <div class="col-6"> -->
-<div class="card" width="100%">
-  <div class="card-body">
-      <div class="d-flex justify-content-between"> 
-        <h4>{{ mymeal }}</h4>
-        <h4>100$</h4>
+<div class="container" style="margin-top:50px;">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card-sl">
+              <div class="card-image">
+                  <img style="height: 287px;width: 100%;"
+                      src="../../../../assets/img/hero-3.jpg" />
+              </div>
+
+              <a class="card-action"   (click)="getmeal(mymeal)"><i class="fa fa-heart"></i></a>
+              <div class="card-heading">
+                 {{  mymeal.name}}
+              </div>
+              <div class="card-text">
+                  Audi Q8 is a full-size luxury crossover SUV coupé made by Audi that was launched in 2018.
+              </div>
+              <div class="card-text">
+                  $67,400
+              </div>
+              <a href="#" class="card-button"> Go To Chard</a>
+          </div>
       </div>
-      
-    
-    <p class="card-text">
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </p>
-  </div>
-  <img
-    src="../../../../assets/img/h.jpg"
-    class="card-img-top"
-    alt="..."
-  />
-  <div class="d-flex justify-content-center" id="fav"> 
-    <span><i class="fa-solid fa-heart" id="love"></i></span>
-    <span><i class="fa-solid fa-cart-shopping" id="cart"></i></span>
-  </div>
-  
-</div>
+  </div>  

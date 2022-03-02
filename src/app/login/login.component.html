@@ -4,32 +4,48 @@
       <h2 class="form-title">Sign In</h2>
       <div class="signup-content">
         <div class="row signup-form">
-          <form class="register-form col-lg-6 .col-md-6 col-12">
+          <div class="alert alert-danger" *ngIf="error">
+            <p>{{ error }}</p>
+          </div>
+          <div *ngIf="isLoading">
+            <app-loading></app-loading>
+          </div>
+          <form class="register-form col-lg-6 .col-md-6 col-12" (ngSubmit)="onSubmit(authForm)" #authForm="ngForm" *ngIf="!isLoading">
             <div class="form-group col-12">
               <input
                 type="email"
                 name="email"
                 id="email"
+                class="form-control"
                 placeholder="Your Email"
+                required
+                email
+                ngModel
               />
             </div>
 
             <div class="form-group col-12">
               <input
                 type="password"
-                name="pass"
+                name="password"
+                class="form-control"
                 id="pass"
                 placeholder="Password"
+                required
+                ngModel
+                minlength="6"
               />
             </div>
             <div class="form-group form-button col-12">
-              <input
+              <button
                 type="submit"
                 name="signup"
                 id="signup"
                 class="btn btn-primary button"
-                value="Login"
-              />
+                [disabled]="!authForm.valid"
+              >
+              login
+              </button>
             </div>
           </form>
           <div class="col-lg-6 .col-md-6 col-sm-12 image">

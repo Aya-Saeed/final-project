@@ -7,3 +7,26 @@ h2{
 h3{
     margin-top: -30px;
 }
+.heading-section {
+    width: 38%;
+    margin: auto;
+    
+}
+.x
+{
+    background-color: #E34949;
+    color: rgb(245, 236, 225);
+    padding-top: 21px;
+    font-family: 'Courgette', cursive;
+    border-radius: 15px;
+}
+.color
+{
+    text-align: center;
+    margin-bottom: 87px;
+}
+.color h4{
+    color: #E34949;
+    font-family: 'Courgette', cursive;
+
+}

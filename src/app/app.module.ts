@@ -20,6 +20,12 @@ import { TeamPageComponent } from './team-page/team-page.component';
 import { RegisterationComponent } from './registeration/registeration.component';
 import { LoginComponent } from './login/login.component';
 import { MealDetailsComponent } from './menu/menu-categories/menu-meals/meal-details/meal-details.component';
+import { FavouriteComponent } from './favourite/favourite.component';
+import { HttpClientModule } from '@angular/common/http';
+import { DropDownComponent } from './drop-down/drop-down.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { loading } from './shared/loading-spinners/loading.component';
+
 
 @NgModule({
   declarations: [
@@ -41,8 +47,12 @@ import { MealDetailsComponent } from './menu/menu-categories/menu-meals/meal-det
     RegisterationComponent,
     LoginComponent,
     MealDetailsComponent,
+    FavouriteComponent,
+    DropDownComponent,
+    loading
+    
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
